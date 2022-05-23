@@ -5,21 +5,15 @@ import { boardService } from '../board.service';
   selector: 'app-tile',
   templateUrl: './tile.component.html'
 }) 
-export class TileComponent implements OnInit,OnChanges {
+export class TileComponent{
   constructor(private bs: boardService) {
   }
 
   @Input() row: number=0;
   @Input() col: number=0;
-  // @Input() identifier:number=0;
-   currentPlayer: string | null = '';
-  ngOnInit(): void {
-   
-    this.currentPlayer='';
-  }
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log(changes)
-  }
+  @Input() currentPlayer: string | null = '';
+  
+  
   // @Output() update = new EventEmitter<{
   //   row: number;
   //   col: number;
@@ -33,12 +27,9 @@ export class TileComponent implements OnInit,OnChanges {
   // }
 
   mark2(){
-    this.currentPlayer=this.bs.CurrentTurn;
+    //this.currentPlayer=this.bs.CurrentTurn;
+    console.log(this.bs.board)
     this.bs.tileClicked(this.row,this.col)
+    
   }
-
-  // mark3(){
-  //   console.log("identifier:"+this.identifier);
-  //   this.bs.tileClicked2(this.identifier);
-  // }
 }

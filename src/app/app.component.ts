@@ -4,24 +4,20 @@ import { boardService } from './board.service';
   selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers:[boardService]
+  
 })
 export class AppComponent {
   title='ticktoktoe';
   // private counter:number=1;
   // private cnt2:number=1;
   constructor(private bs: boardService) {}
+
   get(): boardService {
     return this.bs;
   }
-  // getCnt(){
-  //   return this.counter++;
-  // }
-  // getCnt2(){
-  //   return this.cnt2++;
-  // }
   // updateTile($event:any) {
-
+  //   console.log("inside update app")
+  //   console.log($event.row+" "+$event.col+" :"+this.bs.CurrentTurn)
   //   this.bs.board[$event.row][$event.col] = this.bs.CurrentTurn;
   //   this.bs.toggle();
   //   setTimeout(() => this.bs.checkMatchFinished(), 0);

@@ -1,13 +1,5 @@
 import { Injectable } from '@angular/core';
 
-class tile{
-  n:number=0;
-  value:string='';
-  constructor(n:number,value:string){
-    this.n=n;
-    this.value=value;
-  }
-}
 
 @Injectable({
   providedIn:'root'
@@ -20,12 +12,6 @@ export class boardService {
     ['', '', '']
   ];
 
-  // tileValue:tile[]=[
-  //   new tile(1,''),new tile(2,''),new tile(3,''),
-  //   new tile(4,''),new tile(5,''),new tile(6,''),
-  //   new tile(7,''),new tile(8,''),new tile(9,'')
-  // ];
-
   private player = 'X';
 
   get CurrentTurn(): string {
@@ -33,22 +19,15 @@ export class boardService {
   }
 
   tileClicked(i:number,j:number){
+    console.log(i+" "+j+" :"+this.CurrentTurn)
     this.board[i][j] = this.CurrentTurn;
     this.toggle();
-    //setTimeout(() => this.checkMatchFinished(), 0);
+    console.log(i+" "+j+" :"+this.CurrentTurn)
+    setTimeout(() => this.checkMatchFinished(), 0);
   }
 
-
-  // tileClicked2(n:number){
-  //   console.log("n:"+(n-1));
-  //   this.tileValue[n-1].value=this.player;
-  //   console.log("value:"+this.tileValue[n-1].value)
-  //   this.toggle();
-  //   setTimeout(() => this.checkMatchFinished(), 0);
-  // }
-
   toggle() {
-    this.player = this.player == 'O' ? 'X' : 'O';
+    this.player = this.player == 'X' ? 'O' : 'X';
   }
 
   checkMatchFinished() 
