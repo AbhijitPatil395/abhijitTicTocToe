@@ -16,9 +16,12 @@ pipeline {
                 }
             }
         }
-        stage('push') {
+        stage('Run') {
             steps {
-                echo "docker image pushed to local docker repo..." // Add actual Git checkout command if needed
+                script {
+                    bat 'docker run -p 4300:4200 -d --name tiktoktoe-container tiktoktoe-new4'
+                    echo "Image is running successfully on port 4300..."
+                }
             }
         }
     }
