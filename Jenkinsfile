@@ -16,6 +16,11 @@ pipeline {
                 }
             }
         }
+        stage('push') {
+            steps {
+                echo "docker image pushed to local docker repo..." // Add actual Git checkout command if needed
+            }
+        }
     }
 
     post {
