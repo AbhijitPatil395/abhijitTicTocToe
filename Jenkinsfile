@@ -11,8 +11,8 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'docker --version' // Ensure Docker is accessible
-                    sh 'docker build -t tiktoktoe-new4:latest .'
+                    bat 'docker --version' // Ensure Docker is accessible
+                    bat 'docker build -t tiktoktoe-new4:latest .'
                 }
             }
         }
