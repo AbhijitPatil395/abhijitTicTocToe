@@ -19,7 +19,7 @@ pipeline {
         stage('Run') {
             steps {
                 script {
-                    bat 'docker run -p 4300:4200 -d --name tiktoktoe-container tiktoktoe-new4'
+                    bat 'docker run -p 4300:80 -d --name tiktoktoe-container tiktoktoe-new4'
                     echo "Image is running successfully on port 4300..."
                 }
             }
